@@ -21,13 +21,13 @@ const ArrowUI = (props) => {
   const [moveIconPos, setMoveIconPos] = useState([coordinate.x, coordinate.y, coordinate.z])
 
   const trackPos = (data) => {
-    console.log(size.width, size.height, viewport.width, viewport.height, size.width / viewport.width, "test")
+
     let tempPos = [coordinate.x, coordinate.y, coordinate.z]
     // let canvasWidth = Math.abs(camera.right - camera.left);
     // let canvasHeight = Math.abs(camera.top - camera.bottom);
-    tempPos[0] = tempPos[0] + data.x / size.width * viewport.width;
-    tempPos[2] = tempPos[2] + data.y / size.height * viewport.height;
-    console.log(data.x, data.y, "move data", camera.left, camera.right, camera.top, camera.bottom)
+    tempPos[0] = tempPos[0] + data.x / camera.zoom * 50 / size.width * viewport.width;
+    tempPos[2] = tempPos[2] + data.y / camera.zoom * 50 / size.height * viewport.height;
+    console.log(data.x, data.y, "move data", camera.zoom)
     setMoveIconPos(tempPos)
     setPos(tempPos)
   };
