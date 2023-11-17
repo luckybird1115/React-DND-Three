@@ -2,7 +2,7 @@
 import './App.css';
 import React, { useMemo, useEffect, useState } from 'react';
 import { Canvas, useThree } from "@react-three/fiber";
-import {  OrthographicCamera, MapControls } from "@react-three/drei";
+import { OrthographicCamera, MapControls } from "@react-three/drei";
 
 
 import { useGLTF } from "@react-three/drei";
@@ -23,10 +23,10 @@ const ArrowUI = (props) => {
   const trackPos = (data) => {
     console.log(size.width, size.height, viewport.width, viewport.height, size.width / viewport.width, "test")
     let tempPos = [coordinate.x, coordinate.y, coordinate.z]
-    let canvasWidth = Math.abs(camera.right - camera.left);
-    let canvasHeight = Math.abs(camera.top - camera.bottom);
-    tempPos[0] = tempPos[0] + data.x / canvasWidth * viewport.width;
-    tempPos[2] = tempPos[2] + data.y / canvasHeight * viewport.height;
+    // let canvasWidth = Math.abs(camera.right - camera.left);
+    // let canvasHeight = Math.abs(camera.top - camera.bottom);
+    tempPos[0] = tempPos[0] + data.x / size.width * viewport.width;
+    tempPos[2] = tempPos[2] + data.y / size.height * viewport.height;
     console.log(data.x, data.y, "move data", camera.left, camera.right, camera.top, camera.bottom)
     setMoveIconPos(tempPos)
     setPos(tempPos)
@@ -44,7 +44,7 @@ const ArrowUI = (props) => {
         <Draggable
           onDrag={(e, data) => trackPos(data)}
         >
-          <button 
+          <button
           >
             Test
           </button>
