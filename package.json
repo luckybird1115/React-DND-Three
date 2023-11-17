@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@mui/icons-material": "^5.14.18",
-    "@mui/material": "^5.14.18",
     "@mui/styles": "^5.14.18",
     "@r3f-cutter/r3f-cutter": "^1.0.8",
     "@react-three/csg": "^3.0.0",

@@ -6,45 +6,14 @@ import {  OrthographicCamera, MapControls } from "@react-three/drei";
 
 
 import { useGLTF } from "@react-three/drei";
-import { makeStyles } from "@mui/styles";
+
 import { Html } from "@react-three/drei";
 import Draggable from 'react-draggable';
 
-const useStyles = makeStyles((props) => ({
-  circleButton: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "8px",
-    background: "#FFFFFF",
-    border: "2px solid #6F6F6F",
-    boxShadow:
-      "0px 1px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12)",
-    borderRadius: "24px",
-    fontFamily: "'Poppins'",
-    fontSize: "16px",
-    // flex: "none",
-    order: 0,
-    flexGrow: 0,
-    cursor: "pointer",
-    justifyContent: "center",
-    "&:disabled": {
-      cursor: "default",
-      opacity: 0.4,
-    },
-    "&:not([disabled])": {
-      '&:hover': {
-        background: "#FCEBEB",
-        color: "#EE3126",
-      }
-    },
-    transform: 'translate(-50%, -50%)'
-  },
-}));
+
 const ArrowUI = (props) => {
   const {
     coordinate,
-    direction,
     setPos,
     // setMoveStatus,
     // //setPos,
@@ -52,7 +21,6 @@ const ArrowUI = (props) => {
     // checkDrag,
   } = props;
 
-  const classes = useStyles({ direction });
   const { size, viewport, camera } = useThree();
   const [moveIconPos, setMoveIconPos] = useState([coordinate.x, coordinate.y, coordinate.z])
 
@@ -80,7 +48,7 @@ const ArrowUI = (props) => {
         <Draggable
           onDrag={(e, data) => trackPos(data)}
         >
-          <button className={classes.circleButton}
+          <button 
           >
             Test
           </button>
