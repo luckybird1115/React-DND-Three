@@ -15,10 +15,6 @@ const ArrowUI = (props) => {
   const {
     coordinate,
     setPos,
-    // setMoveStatus,
-    // //setPos,
-    // onUpdatePosition,
-    // checkDrag,
   } = props;
 
   const { size, viewport, camera } = useThree();
